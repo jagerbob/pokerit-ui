@@ -1,0 +1,17 @@
+@import './Colors.module.scss';
+@import './Fonts.module.scss';
+
+h1,h2,h3,h4,h5,h6,p,label,span {
+  color: $pokeritContrast;
+}
+
+h1 {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+}
+
+h2 {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 800;
+  font-size: 48px;
+}

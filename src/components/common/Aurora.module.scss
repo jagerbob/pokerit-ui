@@ -1,0 +1,76 @@
+.auroraBg {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  
+  .container {
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    overflow: hidden;
+  
+    .hue {
+      position: absolute;
+      border-radius: 50%;
+      animation: gradient 10s infinite
+    }
+    .hue:nth-child(1) {
+      height: 90%;
+      width: 80%;
+      background-color: #cd05ff;
+      left: -20%;
+      top: -10%;
+    }
+    .hue:nth-child(2) {
+      height: 80%;
+      width: 70%;
+      background-color: #ff05d5;
+      left: 50%;
+      top: -12%;
+      animation-delay: 2s;
+    }
+    .hue:nth-child(3) {
+      height: 65%;
+      width: 80%;
+      background-color: #5419f7;
+      left: 45%;
+      top: 45%;
+      animation-delay: 0.3s;
+    }
+    .hue:nth-child(4) {
+      height: 50%;
+      width: 75%;
+      background-color: #05daff;
+      left: -22%;
+      top: 55%;
+      animation-delay: 1.2s;
+    }
+  }
+  
+  .container:after {
+    position: absolute;
+    content: "";
+    height: 100%;
+    width: 100%;
+    backdrop-filter: blur(150px);
+  }
+
+  .content {
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+@keyframes gradient {
+  30% {
+    transform: scale(1.6) translate(30px);
+  }
+  70% {
+    transform: scale(1.2) translate(50px);
+  }
+}

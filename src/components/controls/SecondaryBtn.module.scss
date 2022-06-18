@@ -1,0 +1,21 @@
+@import '../../constants/theme/Main.module.scss';
+
+.secondaryBtn {
+  background-color: transparent;
+  border-radius: 8px;
+  color: $pokeritContrast;
+  width: 180px;
+  border: 3px solid $pokeritContrast;
+  padding: 10px;
+  cursor: pointer;
+  transition: 0.4s;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.secondaryBtn:hover {
+  background-color: white;
+  color: black;
+  transition: 0.4s;
+}

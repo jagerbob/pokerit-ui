@@ -1,0 +1,26 @@
+@import './constants/theme/Main.module.scss';
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  .body {
+    width: 100%;
+    height: calc(100% - 90px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .mainQuote {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      h2 {
+        font-size: 38px;
+        margin: 20px 0;
+        font-weight: 100;
+      }
+    }
+  }
+}

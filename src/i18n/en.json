@@ -1,0 +1,12 @@
+{
+  "header": {
+    "appName": "PokerIt",
+    "startANewGame": "Start a new game"
+  },
+  "pages": {
+    "home": {
+      "quote": "Need to evaluate a task ?",
+      "actionBtn": "Poker it !"
+    }
+  }
+}
