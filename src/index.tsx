@@ -11,18 +11,16 @@ const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
-  <React.StrictMode>
-    <Aurora>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<App />} />
-          <Route path="/hubs" element={<Hub />}>
-            <Route path=":hubId" element={<Hub />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
-    </Aurora>
-  </React.StrictMode>
+  <Aurora>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route path="/hubs" element={<Hub />}>
+          <Route path=":hubId" element={<Hub />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  </Aurora>
 );
 
 // If you want to start measuring performance in your app, pass a function
