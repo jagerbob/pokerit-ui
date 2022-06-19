@@ -1,0 +1,88 @@
+@import '../../../constants/theme/Main.module.scss';
+
+.hub {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  .body {
+    width: 100%;
+    height: calc(100% - 90px);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    .tableContainer {
+      display: flex;
+      flex: 1 1 auto;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      .seatRow {
+        width: 60%;
+        display: flex;
+        justify-content: space-around;
+        padding: 20px 0;
+
+        .player {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          max-height: 100px;
+          flex: 1 1 0px;
+          font-family: 'Raleway', sans-serif;
+          font-weight: 900;
+          font-size: 16px;
+          width:0;
+          overflow-wrap: anywhere;
+          overflow: hidden;
+          margin: 5px;
+
+          span {
+            text-align: center;
+          }
+        }
+      }
+
+      .table {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        width: 80%;
+        height: 35%;
+        min-height: 250px;
+        max-width: 1200px;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 250px;
+        border: 3px solid rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        transition: 0.5s;
+
+        .cardRow {
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          width: 75%;
+          height: 35%;
+        }
+
+        .controls {
+          display: flex;
+          width: 75%;
+          height: 30%;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .table {
+    border-radius: 50px!important;
+  }
+}

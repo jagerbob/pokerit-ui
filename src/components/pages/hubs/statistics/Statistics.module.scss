@@ -1,0 +1,54 @@
+@import '../../../../constants/theme/Main.module.scss';
+
+.statistics {
+  height: 150px;
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  display: flex;
+
+  > div {
+    flex: 1 1 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .graph {
+    .graphBar {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      height: 100%;
+      .bar {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        height: 80px;
+        width: 10px;
+        background-color: rgba(255, 255, 255, 0.26);
+        border-radius: 5px;
+        margin-bottom: 5px;
+        .barFill {
+          width: 10px;
+          background-color: $pokeritContrast;
+          border-radius: 5px;
+        }
+      }
+      .barLabel {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 400;
+        font-size: 18px;
+      }
+    }
+  }
+
+  .mean {
+    span {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 400;
+      font-size: 60px;
+    }
+  }
+}

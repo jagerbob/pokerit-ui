@@ -12,14 +12,16 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="hub">
-          <Route path=":hubId" element={<Hub />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <Aurora>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<App />} />
+          <Route path="/hubs" element={<Hub />}>
+            <Route path=":hubId" element={<Hub />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </Aurora>
   </React.StrictMode>
 );
 

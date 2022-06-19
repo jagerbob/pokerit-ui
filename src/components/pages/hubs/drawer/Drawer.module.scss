@@ -1,0 +1,55 @@
+.wrapper {
+  overflow-x: auto;
+  padding: 0 20;
+  background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+  .cardDrawer {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 150px;
+    min-width: 910px;
+
+    .deckCard {
+      cursor: pointer;
+      margin: 10px;
+      height: 90px;
+      min-width: 60px;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 5px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: 0.3s;
+
+      .points {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        font-size: 28px;
+      }
+    }
+
+    .deckCard:hover {
+      transform: translateY(-10px);
+      transition: 0.25s;
+      box-shadow: 0px 6px 19px 3px #ffffff;
+    }
+
+    .deckCard.selected {
+      transform: translateY(-10px);
+      box-shadow: 0px 6px 19px 3px #ffffff;
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .cardDrawer {
+    justify-content: left!important;
+  }
+}

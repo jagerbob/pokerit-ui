@@ -7,6 +7,10 @@
     "home": {
       "quote": "Need to evaluate a task ?",
       "actionBtn": "Poker it !"
+    },
+    "hubs": {
+      "startVoting": "Start voting",
+      "stopVoting": "Stop voting"
     }
   }
 }

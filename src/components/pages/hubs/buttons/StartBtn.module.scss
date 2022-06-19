@@ -1,0 +1,31 @@
+@import '../../../../constants/theme/Main.module.scss';
+
+.startBtn {
+  background-color: transparent;
+  backdrop-filter: blur(-150px);
+  border-radius: 250px;
+  color: $pokeritContrast;
+  height: 50px;
+  width: 300px;
+  border: 3px solid $pokeritContrast;
+  padding: 10px;
+  cursor: pointer;
+  transition: 0.4s;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  animation: glowing 2000ms infinite;
+  transition: 0.5s;
+}
+
+.startBtn:hover {
+  background-color: white;
+  color: black;
+  transition: 0.4s;
+}
+
+@keyframes glowing {
+  0% { box-shadow: 0 0 -10px #04e5f5; }
+  50% { box-shadow: 0 0 20px #04e5f5; }
+  100% { box-shadow: 0 0 -10px #04e5f5; }
+}
