@@ -1,26 +1,14 @@
 import { useEffect, useState } from "react"
-import { GameState } from "../types/GameState"
+import { GameSession } from "../types/GameSession"
 import { useSignalRHub } from "./useSignalRHub";
 
-const temp: GameState = {
-  phase: 'idle',
-  players: [
-    {
-      id: "jksnakjsnzakjsn",
-      username: 'AHOU 🐺',
-      vote: -2,
-      isReady: true
-    }
-  ]
-}
-
 export const useGameState = (username: string, hubId?: string) => {
-  const [ gameState, setGameState ] = useState<GameState>({});
+  const [ gameSession, setGameSession ] = useState<GameSession>({});
   const { hub } = useSignalRHub();
 
   useEffect(() => {
     if(hub){
-      hub.on("UpdateGameState", (gameState: GameState) => setGameState(gameState))
+      hub.on("SessionUpdated", (gameSession: GameSession) => setGameSession(gameSession))
       hub.invoke("Join", username, hubId);
     }
   }, [hub, hubId, username])
@@ -39,5 +27,5 @@ export const useGameState = (username: string, hubId?: string) => {
 
   // setGameState(temp);
 
-  return { gameState, setVote, startVote, stopVote }
+  return { gameSession, setVote, startVote, stopVote }
 }

@@ -1,6 +1,8 @@
 import { Player } from "./Player";
 
-export type GameState = {
+export type GameSession = {
+  id?: string; 
   phase?: 'idle'|'voting'|'showing';
   players?: Player[];
+  creationTime?: string;
 }
