@@ -8,32 +8,32 @@ export const useGameState = (username: string, hubId?: string) => {
 
   useEffect(() => {
     if(hub){
-      hub.on("SessionUpdated", (gameSession: GameSession) => {
-        console.log("received an update");
-        setGameSession(gameSession)
-      })
+      hub.on("SessionUpdated", (gameSession: GameSession) => setGameSession(gameSession))
       hub.invoke("Join", username, hubId);
     }
   }, [hub, hubId, username])
-
-  const setVote = (vote: number) => {
-    if(hub){
-      hub.invoke("SetVote", gameSession.id, vote);
+  
+  useEffect(() => {
+    if(gameSession) {
+      window.addEventListener('beforeunload', leave);
     }
+    return () => {
+      window.removeEventListener('beforeunload', leave);
+    }
+  }, [gameSession])
+
+  const join = () => {
+    hub?.on("SessionUpdated", (gameSession: GameSession) => setGameSession(gameSession))
+    hub?.invoke("Join", username, hubId);
   }
 
-  const startVote = () => {
-    if(hub){
-      hub.invoke("StartVote", gameSession.id);
-    }
-    console.log("vote");
-  }
+  const setVote = (vote: number) => hub?.invoke("SetVote", gameSession.id, vote);
 
-  const stopVote = () => {
-    if(hub){
-      hub.invoke("StopVote", gameSession.id);
-    }
-  }
+  const startVote = () => hub?.invoke("StartVote", gameSession.id);
 
-  return { gameSession, setVote, startVote, stopVote }
+  const stopVote = () => hub?.invoke("StopVote", gameSession.id);
+
+  const leave = () => hub?.invoke("Leave", gameSession.id);
+
+  return { gameSession, join, setVote, startVote, stopVote, leave }
 }

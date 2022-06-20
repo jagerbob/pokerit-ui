@@ -18,8 +18,8 @@ export const Hub = () => {
   const { row1, row2 } = useRowSplitter(gameSession?.players ?? []);
 
   useEffect(() => {
-    console.log(gameSession)
-  }, [gameSession])
+    window.history.replaceState(null, "Pokerit - Playing", `/hubs/${gameSession?.id}`)
+  }, [gameSession?.id])
 
   const vote = (card: number) => {
     setLocalVote(card)
