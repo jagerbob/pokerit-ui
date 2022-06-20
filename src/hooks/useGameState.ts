@@ -4,15 +4,23 @@ import { useSignalRHub } from "./useSignalRHub";
 
 export const useGameState = (username: string, hubId?: string) => {
   const [ gameSession, setGameSession ] = useState<GameSession>({});
+  const [ userId, setUserId ] = useState<string>(); 
   const { hub } = useSignalRHub();
 
   useEffect(() => {
-    if(hub){
-      hub.on("SessionUpdated", (gameSession: GameSession) => setGameSession(gameSession))
+    if(hub && (!hubId || hubId !== gameSession?.id)){
+      setUserId(hub.connectionId ?? "");
+      hub.on("SessionUpdated", (gameSession: GameSession) => setGameSession(gameSession));
       hub.invoke("Join", username, hubId);
     }
-  }, [hub, hubId, username])
-  
+  }, [hub, hubId])
+
+  useEffect(() => {
+    if(hub) {
+      hub?.invoke("SetUsername", gameSession.id, username);
+    }
+  }, [username])
+
   useEffect(() => {
     if(gameSession) {
       window.addEventListener('beforeunload', leave);
@@ -22,10 +30,7 @@ export const useGameState = (username: string, hubId?: string) => {
     }
   }, [gameSession])
 
-  const join = () => {
-    hub?.on("SessionUpdated", (gameSession: GameSession) => setGameSession(gameSession))
-    hub?.invoke("Join", username, hubId);
-  }
+  const vote = gameSession.players?.find((p) => p.id === hub?.connectionId)?.vote;
 
   const setVote = (vote: number) => hub?.invoke("SetVote", gameSession.id, vote);
 
@@ -35,5 +40,5 @@ export const useGameState = (username: string, hubId?: string) => {
 
   const leave = () => hub?.invoke("Leave", gameSession.id);
 
-  return { gameSession, join, setVote, startVote, stopVote, leave }
+  return { gameSession, vote, userId, setVote, startVote, stopVote, leave }
 }

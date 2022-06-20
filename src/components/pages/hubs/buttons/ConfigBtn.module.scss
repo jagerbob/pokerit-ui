@@ -1,0 +1,66 @@
+@import '../../../../constants/theme/Main.module.scss';
+
+.btnContainer {
+  position: relative;
+
+  .configBtn {
+    background-color: transparent;
+    backdrop-filter: blur(-150px);
+    border-radius: 250px;
+    color: $pokeritContrast;
+    height: 50px;
+    width: 50px;
+    border: 3px solid $pokeritContrast;
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.4s;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    transition: 0.5s;
+  }
+  
+  .configBtn:hover {
+    background-color: white;
+    color: black;
+    transition: 0.4s;
+  }
+
+  .tooltip {
+    position: absolute;
+    top: -35px;
+    z-index: 2;
+    height: 20px;
+    width: 100px;
+    left: -27px;
+    text-align: center;
+    overflow: visible;
+    background-color: #303030a6;
+    padding: 3px;
+    border-radius: 7px;
+    opacity: 0;
+    transition: 0.1s;
+
+    span {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 500;
+      font-size: 13px;
+    }
+  }
+
+  .tooltip:after {
+    content: " ";
+    position: absolute;
+    right: 48px;
+    bottom: -6px;
+    border-top: 6px solid #303030a6;
+    border-right: 6px solid transparent;
+    border-left: 6px solid transparent;
+    border-bottom: none;
+  }
+
+  .tooltip.visible {
+    transition: 0.1s;
+    opacity: 100;
+  }
+}

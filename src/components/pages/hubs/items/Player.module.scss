@@ -1,0 +1,19 @@
+.player {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-height: 100px;
+  flex: 1 1 0px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 900;
+  font-size: 16px;
+  width:0;
+  overflow-wrap: anywhere;
+  margin: 5px;
+
+  .username {
+    span {
+      text-align: center;
+    }
+  }
+}

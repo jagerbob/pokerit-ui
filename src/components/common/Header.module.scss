@@ -1,9 +1,20 @@
+@import '../../constants/theme/Main.module.scss';
+
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px 25px;
   height: 50px;
+
+  .navBar {
+    display: flex;
+    align-items: center;
+
+    .newGameBtn {
+      margin-left: 30px;
+    }
+  }
 }
 
 .title {

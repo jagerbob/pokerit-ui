@@ -25,25 +25,6 @@
         display: flex;
         justify-content: space-around;
         padding: 20px 0;
-
-        .player {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          max-height: 100px;
-          flex: 1 1 0px;
-          font-family: 'Raleway', sans-serif;
-          font-weight: 900;
-          font-size: 16px;
-          width:0;
-          overflow-wrap: anywhere;
-          overflow: hidden;
-          margin: 5px;
-
-          span {
-            text-align: center;
-          }
-        }
       }
 
       .table {
@@ -71,10 +52,14 @@
 
         .controls {
           display: flex;
-          width: 75%;
+          width: 85%;
           height: 30%;
-          justify-content: center;
+          justify-content: space-around;
           align-items: center;
+
+          > * {
+            margin: 0 5px;
+          }
         }
       }
     }

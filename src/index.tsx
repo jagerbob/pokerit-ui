@@ -6,20 +6,23 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Hub } from "./components/pages/hubs/Hub";
 import { Aurora } from "./components/common/Aurora";
+import { ContextProviders } from "./context";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
   <Aurora>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/hubs" element={<Hub />}>
-          <Route path=":hubId" element={<Hub />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <ContextProviders storageKey={"pokerit"}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<App />} />
+          <Route path="/hubs" element={<Hub />}>
+            <Route path=":hubId" element={<Hub />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </ContextProviders>
   </Aurora>
 );
 

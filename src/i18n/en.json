@@ -10,7 +10,10 @@
     },
     "hubs": {
       "startVoting": "Start voting",
-      "stopVoting": "Stop voting"
+      "stopVoting": "Stop voting",
+      "linkCopied": "Link copied!",
+      "requireADLC": "Require a DLC"
+
     }
   }
 }
