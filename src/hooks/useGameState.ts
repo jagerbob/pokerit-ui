@@ -8,24 +8,32 @@ export const useGameState = (username: string, hubId?: string) => {
 
   useEffect(() => {
     if(hub){
-      hub.on("SessionUpdated", (gameSession: GameSession) => setGameSession(gameSession))
+      hub.on("SessionUpdated", (gameSession: GameSession) => {
+        console.log("received an update");
+        setGameSession(gameSession)
+      })
       hub.invoke("Join", username, hubId);
     }
   }, [hub, hubId, username])
 
   const setVote = (vote: number) => {
-    console.log("Voting for : " + vote);
+    if(hub){
+      hub.invoke("SetVote", gameSession.id, vote);
+    }
   }
 
   const startVote = () => {
-    console.log("Starting votes");
+    if(hub){
+      hub.invoke("StartVote", gameSession.id);
+    }
+    console.log("vote");
   }
 
   const stopVote = () => {
-    console.log("Stopping votes");
+    if(hub){
+      hub.invoke("StopVote", gameSession.id);
+    }
   }
-
-  // setGameState(temp);
 
   return { gameSession, setVote, startVote, stopVote }
 }

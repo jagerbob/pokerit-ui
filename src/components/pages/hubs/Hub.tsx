@@ -9,16 +9,22 @@ import { fibonnaciDeck } from "../../../constants/decks";
 import { useRowSplitter } from "../../../hooks/useRowSplitter";
 import { Statistics } from "./statistics/Statistics";
 import { useGameState } from "../../../hooks/useGameState";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export const Hub = () => {
   const { hubId } = useParams();
   const { gameSession, setVote, startVote, stopVote } = useGameState('AHOU', hubId);
+  const [ localVote, setLocalVote ] = useState<number>();
   const { row1, row2 } = useRowSplitter(gameSession?.players ?? []);
 
   useEffect(() => {
     console.log(gameSession)
   }, [gameSession])
+
+  const vote = (card: number) => {
+    setLocalVote(card)
+    setVote(card);
+  }
 
   return (
     <div className={styles.hub}>
@@ -57,7 +63,7 @@ export const Hub = () => {
           </div>
         </div>
         {gameSession?.phase === "voting" &&
-          <Drawer cards={fibonnaciDeck} selected={1} onSelect={setVote}/>
+          <Drawer cards={fibonnaciDeck} selected={localVote} onSelect={vote}/>
         }
         {gameSession?.phase === "showing" &&
           <Statistics cards={fibonnaciDeck} points={gameSession?.players?.map((p) => p.vote ?? -1) ?? []}/>
