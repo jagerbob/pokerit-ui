@@ -1,12 +1,16 @@
 version: "3.8"
 services:
-  app:
+  pokerit-ui:
+    image: pokerit-ui
+    container_name: pokerit-ui
     build:
       context: .
+      args:
+        REACT_APP_WS_SERVER_URL: pokerit.chatonmort.com
+        REACT_APP_WS_SERVER_PORT: 9898
     volumes:
       - .:/core
     ports:
-      - 3000:3000
-    image: app:react
-    container_name: pokerit-ui
+      - 80:3000
+      - 443:3000
     command: yarn start
